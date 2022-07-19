@@ -1,8 +1,19 @@
 import { Typography } from "@mui/material";
 import type { NextPage } from "next";
 import Head from "next/head";
+import { Counter } from "../components/counter";
+import { ObjectComponent } from "../components/objectComponent";
+import CountProvider from "../context/contextCounter";
+import CtxObjectProvider from "../context/ctxObject";
 
 const Home: NextPage = () => {
+  // const { contextObject, setContextObject } = useContextObject();
+  // setContextObject(0);
+  // setContextObject({
+  //   titleTextBold: "Vem cá!",
+  //   section01IconCircleTextColor: false,
+  // });
+
   return (
     <div>
       <Head>
@@ -13,6 +24,15 @@ const Home: NextPage = () => {
 
       <main>
         <Typography variant="h1">DevALMO, YouTube channel</Typography>
+        <CountProvider>
+          <Counter />
+        </CountProvider>
+
+        <CtxObjectProvider>
+          <ObjectComponent />
+        </CtxObjectProvider>
+
+        {/* <Typography>{contextObject.titleTextBold}</Typography> */}
       </main>
 
       <footer></footer>
